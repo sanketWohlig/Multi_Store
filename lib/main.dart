@@ -153,11 +153,11 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => ChatProvider()),
         ChangeNotifierProvider<NewsProvider>(
             create: (context) => NewsProvider()),
-        ChangeNotifierProvider<UserProvider>(
-            create: (context) => UserProvider()),
-        ChangeNotifierProvider<GoogleSignInProvider>(
-            create: ((context) => GoogleSignInProvider())),
-        ListenableProvider<LoadingProvider>(
+        // ChangeNotifierProvider<UserProvider>(
+        //     create: (context) => UserProvider()),
+        // ChangeNotifierProvider<GoogleSignInProvider>(
+        //     create: ((context) => GoogleSignInProvider())),
+        ChangeNotifierProvider<LoadingProvider>(
             create: ((context) => LoadingProvider())),
       ],
       child: MaterialApp(
