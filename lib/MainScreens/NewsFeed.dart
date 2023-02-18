@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../Models/News.dart';
 import '../Provider/NewsProvider.dart';
+import '../SubScreens/ChatPage.dart';
 import '../Widgets/CustomAppBar.dart';
 import '../Widgets/CustomPageView.dart';
 import '../Widgets/Drawer/Drawer.dart';
@@ -111,8 +112,8 @@ class _ChatBoxState extends State<ChatBox> {
             // Icon
             child: TextField(
               onTap: () {
-                // Navigator.push(context,
-                //     MaterialPageRoute(builder: (context) => ChatPage()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ChatPage()));
               },
               controller: question,
               showCursor: true,

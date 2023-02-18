@@ -103,6 +103,7 @@ import 'package:firebase_core/firebase_core.dart';
 // import 'package:flutter_dotenv/flutter_dotenv.dart';
 //Pages
 import 'package:provider/provider.dart';
+import 'package:untitled/utilities/themeData.dart';
 
 // import 'package:untitled/MainScreen/ChatsHistoryPage.dart';
 import 'MainScreens/AuthPage.dart';
@@ -150,7 +151,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        // ChangeNotifierProvider(create: (context) => ChatProvider()),
+        ChangeNotifierProvider(create: (context) => ChatProvider()),
         ChangeNotifierProvider<NewsProvider>(
             create: (context) => NewsProvider()),
         // ChangeNotifierProvider<UserProvider>(
@@ -163,7 +164,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'News App',
         // builder: LoadingScreen.init(),
-        // theme: MyTheme.lightTheme(context),
+        theme: MyTheme.lightTheme(context),
         initialRoute: '/',
         routes: {
           '/': (context) => const MyHomePage(),
