@@ -17,9 +17,9 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget {
       actions: [
         IconButton(
             onPressed: () {
-              // final provider =
-              //     Provider.of<GoogleSignInProvider>(context, listen: false);
-              // provider.googleLogOut(context);
+              final provider =
+                  Provider.of<GoogleSignInProvider>(context, listen: false);
+              provider.googleLogOut(context);
             },
             tooltip: 'LogOut',
             icon: const Icon(

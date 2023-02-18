@@ -103,6 +103,7 @@ import 'package:firebase_core/firebase_core.dart';
 // import 'package:flutter_dotenv/flutter_dotenv.dart';
 //Pages
 import 'package:provider/provider.dart';
+import 'package:untitled/utilities/CheckWeb.dart';
 import 'package:untitled/utilities/themeData.dart';
 
 // import 'package:untitled/MainScreen/ChatsHistoryPage.dart';
@@ -126,21 +127,21 @@ import 'Provider/loaderProvider.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // if (PlatformUtils.isMobile || PlatformUtils.isDesktop) {
-  //   await Firebase.initializeApp();
-  // } else {
-  //   await Firebase.initializeApp(
-  //     options: FirebaseOptions(
-  //       apiKey: DotEnv().env['FIREBASE_API_KEY']!,
-  //       authDomain: DotEnv().env['FIREBASE_AUTH']!,
-  //       projectId: DotEnv().env['FIREBASE_PROJECT_ID']!,
-  //       storageBucket: DotEnv().env['FIREBASE_STORAGE_BUCKET']!,
-  //       messagingSenderId: DotEnv().env['FIREBASESENDER_ID']!,
-  //       appId: DotEnv().env['FIREBASE_APP_ID']!,
-  //       measurementId: DotEnv().env['FIREBASE_MEASUREMENT_ID']!,
-  //     ),
-  //   );
-  // }
+  if (PlatformUtils.isMobile || PlatformUtils.isDesktop) {
+    await Firebase.initializeApp();
+  } else {
+    await Firebase.initializeApp(
+      options: FirebaseOptions(
+        apiKey: "AIzaSyD_3A6XON_GkIK0rN9enl_95R7xdCiD3BQ",
+        authDomain: "newsapp-b0b74.firebaseapp.com",
+        projectId: "newsapp-b0b74",
+        storageBucket: "newsapp-b0b74.appspot.com",
+        messagingSenderId: "473742830038",
+        appId: "1:473742830038:web:8a26e8ffabdecc7a759c77",
+        measurementId: "G-WDT53W3T9E",
+      ),
+    );
+  }
   // await dotenv.load(fileName: ".env");
   runApp(const MyApp());
 }
@@ -154,10 +155,10 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => ChatProvider()),
         ChangeNotifierProvider<NewsProvider>(
             create: (context) => NewsProvider()),
-        // ChangeNotifierProvider<UserProvider>(
-        //     create: (context) => UserProvider()),
-        // ChangeNotifierProvider<GoogleSignInProvider>(
-        //     create: ((context) => GoogleSignInProvider())),
+        ChangeNotifierProvider<UserProvider>(
+            create: (context) => UserProvider()),
+        ChangeNotifierProvider<GoogleSignInProvider>(
+            create: ((context) => GoogleSignInProvider())),
         ChangeNotifierProvider<LoadingProvider>(
             create: ((context) => LoadingProvider())),
       ],
@@ -190,13 +191,13 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FeedPage();
-    // if (FirebaseAuth.instance.currentUser != null) {
-    //   print('Feed PAge');
-    //   return const FeedPage();
-    // } else {
-    //   print('Login');
-    //   return const LoginPage();
-    // }
+    // return FeedPage();
+    if (FirebaseAuth.instance.currentUser != null) {
+      print('Feed Page');
+      return const FeedPage();
+    } else {
+      print('Login');
+      return const LoginPage();
+    }
   }
 }
