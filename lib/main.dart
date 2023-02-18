@@ -116,7 +116,11 @@ import 'MainScreens/SearchPage.dart';
 import 'MainScreens/SettingPage.dart';
 import 'MainScreens/TrendingPage.dart';
 import 'MainScreens/UnseenStories.dart';
+import 'Provider/AuthProvider.dart';
+import 'Provider/ChatProvider.dart';
 import 'Provider/NewsProvider.dart';
+import 'Provider/UserProvider.dart';
+import 'Provider/loaderProvider.dart';
 // import 'Provider/NetworkStatus.dart';
 
 Future main() async {
@@ -146,8 +150,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<NewsProvider>(
+        ChangeNotifierProvider(create: (context) => ChatProvider()),
+          ChangeNotifierProvider<NewsProvider>(
               create: (context) => NewsProvider()),
+          ChangeNotifierProvider<UserProvider>(
+              create: (context) => UserProvider()),
+          ChangeNotifierProvider<GoogleSignInProvider>(
+              create: ((context) => GoogleSignInProvider())),
+          Provider<LoadingProvider>(create: ((context) => LoadingProvider())),
       ],
       child: MaterialApp(
         title: 'News App',
