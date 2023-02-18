@@ -7,7 +7,7 @@ import '../Models/News.dart';
 
 class NewsProvider extends ChangeNotifier {
   List<newsResponse>? newsdata;
-  AddBookmark? bookmarks;
+  // AddBookmark? bookmarks;
   int currentindex = 0;
   getallnews() async {
     newsdata = await getNews('/news/mynews/all');

@@ -16,18 +16,18 @@ Future<List<newsResponse>> getNews(String path) async {
   return _list;
 }
 
-Future<AddBookmark> allbookmarks(String path) async {
-  Response res = await apicall.postWithAuthWithoutBody(path);
-  var body = jsonDecode(res.body);
-  AddBookmark bookmark = AddBookmark.fromJson(body);
-  return bookmark;
-}
+// Future<AddBookmark> allbookmarks(String path) async {
+//   Response res = await apicall.postWithAuthWithoutBody(path);
+//   var body = jsonDecode(res.body);
+//   AddBookmark bookmark = AddBookmark.fromJson(body);
+//   return bookmark;
+// }
 
-Future<AddBookmark> getbookmark(String path) async {
-  Response res = await apicall.getWithAuth(path);
-  var body = jsonDecode(res.body);
-  AddBookmark bookmark = AddBookmark.fromJson(body);
-  return bookmark;
-}
+// Future<AddBookmark> getbookmark(String path) async {
+//   Response res = await apicall.getWithAuth(path);
+//   var body = jsonDecode(res.body);
+//   AddBookmark bookmark = AddBookmark.fromJson(body);
+//   return bookmark;
+// }
 
 
