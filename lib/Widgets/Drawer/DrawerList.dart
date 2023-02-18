@@ -5,6 +5,8 @@ import '../../utilities/drawelist.dart';
 // import 'Divider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'Divider.dart';
+
 class CustomDrawerList extends StatefulWidget {
   const CustomDrawerList({super.key});
 
@@ -40,16 +42,16 @@ class _CustomDrawerListState extends State<CustomDrawerList> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // index == 3 || index == 7 || index == 0
-                      //     ? Column(
-                      //         children: const [
-                      //           DrawerDivider(),
-                      //           SizedBox(
-                      //             height: 8.0,
-                      //           ),
-                      //         ],
-                      //       )
-                      //     : Container(),
+                      index == 3 || index == 7 || index == 0
+                          ? Column(
+                              children: const [
+                                DrawerDivider(),
+                                SizedBox(
+                                  height: 8.0,
+                                ),
+                              ],
+                            )
+                          : Container(),
                       Stack(fit: StackFit.loose, children: [
                         // Consumer<LoadingProvider>(
                         //   builder: (context,value,child){
