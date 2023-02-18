@@ -151,13 +151,14 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => ChatProvider()),
-          ChangeNotifierProvider<NewsProvider>(
-              create: (context) => NewsProvider()),
-          ChangeNotifierProvider<UserProvider>(
-              create: (context) => UserProvider()),
-          ChangeNotifierProvider<GoogleSignInProvider>(
-              create: ((context) => GoogleSignInProvider())),
-          Provider<LoadingProvider>(create: ((context) => LoadingProvider())),
+        ChangeNotifierProvider<NewsProvider>(
+            create: (context) => NewsProvider()),
+        ChangeNotifierProvider<UserProvider>(
+            create: (context) => UserProvider()),
+        ChangeNotifierProvider<GoogleSignInProvider>(
+            create: ((context) => GoogleSignInProvider())),
+        ListenableProvider<LoadingProvider>(
+            create: ((context) => LoadingProvider())),
       ],
       child: MaterialApp(
         title: 'News App',
