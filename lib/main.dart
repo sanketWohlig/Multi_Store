@@ -79,11 +79,10 @@ class _MytransformerState extends State<Mytransformer> {
       index: 0,
       transformer: DeepthPageTransformer(),
       pageController: _controller,
-      
       itemBuilder: (BuildContext context, int index) {
         return Scaffold(
           body: Container(
-            color: index % 2 == 0 ? Colors.amber : Colors.blue,
+            color: index % 2 == 0 ? Colors.amber : Colors.deepOrangeAccent,
             child: Center(
               child: Text('Page $index'),
             ),
