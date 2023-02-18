@@ -116,6 +116,7 @@ import 'MainScreens/SearchPage.dart';
 import 'MainScreens/SettingPage.dart';
 import 'MainScreens/TrendingPage.dart';
 import 'MainScreens/UnseenStories.dart';
+import 'Provider/NewsProvider.dart';
 // import 'Provider/NetworkStatus.dart';
 
 Future main() async {
@@ -143,25 +144,31 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'News App',
-      // builder: LoadingScreen.init(),
-      // theme: MyTheme.lightTheme(context),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const MyHomePage(),
-        '/auth': (context) => const LoginPage(),
-        '/feed': (context) => const FeedPage(),
-        '/bookmark': (context) => const BookmarkPage(),
-        '/categories': (context) => const CategoriesPage(),
-        '/chat': (context) => const ChatHistoryPage(),
-        '/feedback': (context) => const FeedBackPage(),
-        '/help': (context) => const HelpPage(),
-        '/search': (context) => const SearchPage(),
-        '/setting': (context) => const SettingPage(),
-        '/trending': (context) => const TrendingPage(),
-        '/unseenstories': (context) => const UnseenStoriesPage(),
-      },
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<NewsProvider>(
+              create: (context) => NewsProvider()),
+      ],
+      child: MaterialApp(
+        title: 'News App',
+        // builder: LoadingScreen.init(),
+        // theme: MyTheme.lightTheme(context),
+        initialRoute: '/',
+        routes: {
+          '/': (context) => const MyHomePage(),
+          '/auth': (context) => const LoginPage(),
+          '/feed': (context) => const FeedPage(),
+          '/bookmark': (context) => const BookmarkPage(),
+          '/categories': (context) => const CategoriesPage(),
+          '/chat': (context) => const ChatHistoryPage(),
+          '/feedback': (context) => const FeedBackPage(),
+          '/help': (context) => const HelpPage(),
+          '/search': (context) => const SearchPage(),
+          '/setting': (context) => const SettingPage(),
+          '/trending': (context) => const TrendingPage(),
+          '/unseenstories': (context) => const UnseenStoriesPage(),
+        },
+      ),
     );
   }
 }
